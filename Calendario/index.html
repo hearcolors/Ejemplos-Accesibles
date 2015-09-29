@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" >
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="copyright" content="Deque University"/>
+<meta name="author" content="HearColors S.A.P.I. DE C.V."/>
+<title>Calendar popup</title>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+<script type="text/javascript" src="js/jquery-ui/jquery-ui.min.js"></script>
+<script>var buttonImageFile = 'img/calendar.png';</script>
+<link rel="stylesheet" href="css/jquery-ui.css">
+
+<style>
+#datepicker {
+    margin: 0;
+    padding: 0;
+    height: 25px;
+    vertical-align: bottom;
+}
+
+.ui-datepicker-trigger {
+    margin: 2px;
+    padding: 0;
+    vertical-align: bottom;
+}
+
+.ui-datepicker-trigger img{
+    width: 25px;
+    height: 25px;
+}
+
+
+.offscreen {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+button.ui-datepicker-trigger {background-color:transparent !important;border:none !important; margin:auto !important;}
+button.ui-datepicker-trigger:focus,button.ui-datepicker-trigger:hover,button.ui-datepicker-trigger:active {
+border:none !important; margin:auto !important; outline:2px solid #8cc63f !important;background-color:#fdf6e7 !important;}
+</style>
+
+</head>
+<body>
+	<div class="example" id="id885_example_date_picker">
+		<label id="datepickerLabel" for="datepicker"> Fecha(dd/mm/yyyy):</label><input type="text" id="datepicker">
+	   </div>
+</body>
+</html>

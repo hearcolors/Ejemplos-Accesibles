@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Otro ejemplo de tabla id/headers</title>
+</head>
+<body>
+  <table border="1">
+  <caption>Ejemplo de Tabla con id y headers.</caption>
+   <tr>
+     <th rowspan="2" id="h">Tarea</th>
+     <th colspan="3" id="e">Examen</th>
+     <th colspan="3" id="p">Proyecto</th>
+   </tr>
+   <tr>
+     <th id="e1" headers="e">Primer Parcial</th>
+     <th id="e2" headers="e">Segundo Parcial</th>
+     <th id="ef" headers="e">Final</th>
+     <th id="p1" headers="p">Primer Parcial</th>
+     <th id="p2" headers="p">Segundo Parcial</th>
+     <th id="pf" headers="p">Final</th>
+   </tr>
+   <tr style="text-align:center;">
+    <td headers="h">15%</td>
+    <td headers="e e1">15%</td>
+    <td headers="e e2">15%</td>
+    <td headers="e ef">20%</td>
+    <td headers="p p1">10%</td>
+    <td headers="p p2">10%</td>
+    <td headers="p pf">15%</td>
+   </tr>
+  </table>
+</body>
+</html>

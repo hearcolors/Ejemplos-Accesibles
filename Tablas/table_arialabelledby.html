@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Tabla con ARIA</title>
+</head>
+
+<body>
+<p>Ejemplo de entrada de datos usando el atributo aria-labelledby</p>
+
+<table class="datos" role="presentation" border="1" cellpadding="5" cellspacing="2">
+<caption>
+Boletos del cine
+</caption>
+  <tr>
+    <th scope="col"><span id="prog">Tipo de entrada</span></th>
+    <th scope="col"><span id="ind">Individual</span></th>
+    <th scope="col"><span id="par">Pareja</span></th>
+    <th scope="col"><span id="dia">D&iacute;a del mes (ejemplo: 09)</span></th>
+	<th scope="col"><span id="hora">Hora (ejemplo: 18:00)</span></th>
+  </tr>
+  <tr>
+    <th scope="row"><span id="cupones">Cup&oacute;n</span></th>
+    <td><input type="checkbox" name="1" aria-labelledby="ind cupones"></td>
+    <td><input type="checkbox" name="2" aria-labelledby="par cupones"></td>
+    <td><input type="text" name="dia1" aria-labelledby="dia cupones"></td>
+    <td><input type="text" name="hora2" aria-labelledby="hora cupones"></td>
+  </tr>
+  <tr>
+    <th scope="row"><span id="compra_ef">Compra en efectivo</span></th>
+    <td><input type="checkbox" name="3" aria-labelledby="ind compra_ef"></td>
+    <td><input type="checkbox" name="4" aria-labelledby="par compra_ef"></td>
+    <td><input type="text" name="dia3" aria-labelledby="dia compra_ef"></td>
+    <td><input type="text" name="hora4" aria-labelledby="hora compra_ef"></td>
+  </tr>
+  <tr>
+    <th scope="row"><span id="compra_tc">Compra con <abbr title="Tarjeta de cr�dito"> TC</abbr></span></th>
+    <td><input type="checkbox" name="5" aria-labelledby="ind compra_tc"></td>
+    <td><input type="checkbox" name="6" aria-labelledby="par compra_tc"></td>
+    <td><input type="text" name="dia5" aria-labelledby="dia compra_tc"></td>
+    <td><input type="text" name="hora6" aria-labelledby="hora compra_tc"></td>
+  </tr>
+</table>
+</body>
+</html>

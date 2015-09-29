@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Tooltips Enlaces</title>
+<style type="text/css">
+
+*[title]          {padding-bottom:1px; border-bottom:1px dotted #ccc; cursor:help}
+*[title]:hover,
+*[title]:focus    {border-bottom:1px dotted blue; background:#eef}
+
+.tooltipParent    {position:relative; outline:0 solid}
+
+.tooltip          {display:none; position:absolute; z-index:100; top:-3.65em; left:12px}
+.tooltip .ttbox   {display:block; font-weight:bold; color:#fff; background:#786D8F; border:0.2em solid orange; padding:10px 15px; white-space:nowrap; border-radius:1em; -moz-border-radius:1em; -webkit-border-radius:1em}
+.tooltip .ttarrow {width:0; height:0; overflow:hidden; border-left:0.5em solid transparent; border-right:0.5em solid transparent; border-top:1em solid orange; border-bottom:0; position:absolute; bottom:-0.95em; left:1em}
+
+  </style>
+  <!--[if lt IE 7]>
+    <style type="text/css">
+
+      .tooltip .ttarrow {border-left:0.5em solid #fff; border-right:0.5em solid #fff}
+
+    </style>
+  <![endif]-->
+
+</head>
+
+<body id="tooltip">
+
+
+<div id="content">
+  
+  <h2>Ejemplo</h2>
+  <p>Experiencia en accesibilidad, optimizaci&oacute;n, 
+      <acronym title="(eXtensible) HyperText Mark-up Language">(X)HTML</acronym>, 
+      <acronym title="Cascading Style Sheets">CSS</acronym>, JavaScript, 
+      <acronym title="Asynchronous Javascript And eXtensible mark-up language">Ajax</acronym> y un poco de jQuery. </p>
+  <p><span title="Es un lenguaje de programaci&oacute;n de prop&oacute;sito general, concurrente, orientado a objetos">Qu&eacute; es JAVA?</span></p>
+</div>
+
+
+<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+
+function turnOn(o){
+  if (!o.t){
+
+    // store orginal contents as part of object
+    o.t=o.title;
+    o.c=o.innerHTML;
+
+    // store tooltip build as part of the object
+    o.h=o.c+'<span class="tooltip"><span class="ttbox"> '+o.title+'</span><span class="ttarrow"></span></span>';
+  }
+  if ($(o).css('position')=="relative"){
+    o.innerHTML=o.h;
+    o.title='';
+  }
+  $(o).find('span.tooltip').fadeIn('fast');
+}
+
+function turnOff(o){
+   $(o).find('span.tooltip').fadeOut('slow');
+   o.innerHTML=o.c;
+   o.title=o.t;
+}
+
+// loop through all objects with a title attribute
+var titles=$('[title]');
+
+// use an efficient for loop as there may be a lot to cycle through
+for(var i=titles.length-1;i>-1;i--){
+
+   // titled object must be position:relative
+   $(titles[i]).addClass('tooltipParent');
+
+   // titled object must appear in the keyboard focus
+   $(titles[i]).attr('tabindex','0');
+
+   // mouse & keyboard functions
+   $(titles[i])
+      .hover(function(){turnOn(this);},function(){turnOff(this);})
+      .focus(function(){turnOn(this);})
+      .blur(function(){turnOff(this);});
+}
+/*]]>*/
+</script>
+</body>
+</html>

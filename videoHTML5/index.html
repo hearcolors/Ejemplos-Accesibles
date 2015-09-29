@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+     <meta charset="utf-8" />
+     <title>Accessible HTML5 Video Player</title>
+     <meta name="description" content="Curso Video Html5." />
+     <meta name="author" content="Hearcolors" />
+     <meta name="copyright" content="Paypal">
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- PX-VIDEO CSS -->
+<link rel="stylesheet" href="css/px-video.css" />
+
+<style>
+/*** for demo only ***/
+#wrapper {
+	width: 640px;
+	margin: 1em auto;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#brand a,
+p a {
+	border: 1px #fff dotted;
+}
+#brand a:focus,
+p a:focus,video:focus {
+	border: 1px #999 dotted;
+	outline: none;*/
+}
+p {
+	padding-top: 1em;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+
+<h1>Video Accessible HTML5</h1>
+
+<div class="px-video-container" id="myvid">
+	<div class="px-video-img-captions-container">
+		<div class="px-video-captions hide"></div>
+		<video width="640" height="360" poster="media/Wildlife.jpg" controls>
+			<!-- video files -->
+			<source src="media/Wildlife.mp4" type="video/mp4" />
+			<source src="media/Wildlife.webm" type="video/webm" />
+			
+			<!-- text track file 
+			<track kind="captions" label="Español" src="" srclang="en" default />-->
+			
+			<!-- fallback for browsers that don't support the video element 
+			<div>
+				<a href="media/Wildlife.mp4">
+					<img src="media/Wildlife.jpg" width="640" height="360" alt="descarga video" />
+				</a>
+			</div>-->
+		</video>
+	</div><!-- end container for captions and video -->
+	<div class="px-video-controls"> </div>
+</div><!-- end video container -->
+<p tabindex="1" style=""> Animales en la naturaleza; caballos, aves, focas, castores y koalas</p>
+</div><!-- end page wrapper container -->
+
+<script src="js/px-video.js"></script>
+
+<script>
+
+// Initialize
+new InitPxVideo({
+	"videoId": "myvid",
+	"captionsOnDefault": true,
+	"seekInterval": 20,
+	"videoTitle": "HearColors",
+	"debug": true
+});
+
+</script>
+
+</body>
+</html>
+
+

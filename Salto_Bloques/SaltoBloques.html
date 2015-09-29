@@ -1,0 +1,77 @@
+<!doctype html>
+<html xml:lang="es" lang="es">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>HearColors | Accesibilidad Web</title>
+
+    <link rel="stylesheet" href="SaltoB.css" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="SaltoB.js"></script>
+    <script>
+     $(document).ready(function(){
+	$('body').addClass('js'); // adds class to body tag when JavaScript is enabled (...but you already do this right?)
+	skipNavigation('skip-nav'); // send container id
+     });
+    </script>
+</head>
+<body>
+    
+<div id="skip-nav">  
+<strong>Atajo de Navegación:</strong> 
+<ul> 
+<li><a href="#content">Saltar al contenido principal</a></li> 
+<li><a href="#nav">Saltar al Menú</a></li>
+<li><a href="#footer">Saltar al pie de página</a></li> 
+</ul> 
+</div> <!-- end skip-nav -->
+<div id="nav"> 
+<!-- INICIO DEL MENU-->   
+<div id="menu">
+        <div class="cuerpo_web">
+            <img id="logo" src="logo.png" width="311" height="39" alt="Logo de HearColors"/> <br/> <br/>
+          
+		  MENU:           <br/>
+		   <div id="links_menu">
+                <span><a href="#">&#191;Qué Hacemos&#63;</a></span>
+                <span><a href="habilita.html">Habilita</a></span>
+                <span><a href="comunica.html">Comunica</a></span>
+                <span><a href="educa.html">Educa</a></span>
+            </div>
+            
+        </div>
+</div>
+<!-- FIN DEL MENU-->   
+<!-- INICIO DEL CONTENIDO-->   
+<div id="content">
+CONTENIDO <br/>
+    <div id="cuerpo_web" class="cuerpo_web">
+    	<div id="nivel_accesibilidad" class="seccion">
+        	<div class="columna_nivel primera_columna">
+                <div class="texto_seccion">Conoce el nivel de accesibilidad de tu plataforma y busca las diferentes maneras de<br/> adaptarla para llegar al 100% de accesibilidad.</div>
+            </div>
+        </div>
+    	<div id="ranking" class="seccion">
+        	<div class="columna_nivel primera_columna">
+               <div class="texto_seccionAma"><strong>En el mundo:</strong> Hay 1,000 millones de personas con discapacidad y 600 millones de personas mayores de 60 años.</div>
+               <div class="texto_seccionAma"><strong>M&eacute;xico:</strong> La poblaci&oacute;n mayor de 60 años es de casi 11 millones y el 5% de los mexicanos tiene alguna discapacidad.</div>
+               
+            </div>
+        	
+            <div style="clear:both"></div>
+        </div>
+    </div>
+</div>
+<!-- FIN DEL CONTENIDO-->   
+<!-- INICIO DEL PIE DE PÁGINA-->   
+    <div id="footer">
+	PIE DE PÁGINA <br/>
+        <div class="cuerpo_web">
+            <div id="copyright">
+                Copyright 2014, <a href="http://www.hearcolors.com.mx/">HEARCOLORS S.A.P.I. DE C.V.</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+	<!-- FIN DEL PIE DE PÁGINA -->   
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="copyright" content="Deque University">
+<meta name="author" content="HearColors S.A.P.I. DE C.V.">
+
+<title>Ejemplo Carrusel</title>
+
+<script type="text/javascript" src="js/carousel-autoplay-imagelist.js"></script>
+<script type="text/javascript" src="js/carousel-autoplay-tabs.js"></script>
+<script type="text/javascript" src="js/carrusel.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<style type="text/css">
+.carousel-images .offscreen {
+    position: absolute;
+    left: -999px;
+    top: -30px;
+    height: 2px;
+    width: 2px;
+    overflow: hidden;
+}
+
+.carousel-images a img {
+    border: none;
+}
+
+.carousel-images {
+    margin: 0 auto;
+    width: 600px;
+}
+
+.carousel-images .imagegroup {
+    text-align: center;
+    overflow: hidden;
+}
+
+.carousel-images .imagegroup {
+    width: 600px;
+    overflow: none;
+    height: 240px;
+}
+
+.carousel-images .imagegroup ul {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    width: 2250px;
+}
+
+.carousel-images .imagegroup li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: left;
+}
+
+.carousel-images .controls {
+    text-align: center;
+    clear: both;
+}
+
+.carousel-images .controls ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.carousel-images .controls li {
+    display: inline-block;
+    height: 28px;
+    width: 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.carousel-images .controls li a {
+    height: 26px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    display: inline - block;
+}
+
+.carousel-images .controls li img {
+    padding: 5px;
+    display: inline - block;
+}
+
+.carousel-images .controls li img[role = button]: hover,
+.carousel-images .controls li img[role = button]: focus,
+.carousel-images .controls li img[role = button]: active,
+.carousel-images .controls li a: hover,
+.carousel-images .controls li a: focus,
+.carousel-images .controls li a: active {
+    cursor: pointer;
+    outline: 1px solid #9fb4fa;
+    background: # f7f9ff;
+}
+
+.carousel-images #playPauseButton: hover {
+    border: 0 !important;
+    margin: 0px;
+}
+</style>
+<script type="text/javascript">
+var imgHash = {};
+var timer;
+
+var animateCarousel = function(duration, repeat) {
+    $(".controls img").attr("src", function(index, attr) {
+        return attr.replace("black", "grey");
+    });
+    highlightControlForCurrentImage(repeat);
+    $(".imagegroup ul").animate({
+            marginLeft: repeat * -600
+        },
+        duration,
+        function() {
+            for (var i = 0; i < repeat; i++) {
+                $(this).find("li:last").after($(this).find("li:first"));
+            }
+            $(this).css({
+                marginLeft: 0
+            });
+        }
+    );
+}
+
+var highlightControlForCurrentImage = function(i) {
+    var imgCtrl = $(imgHash[$($(".imagegroup li img")[i]).attr("src")]);
+    imgCtrl.attr("src", imgCtrl.attr("src").replace("grey", "black"));
+}
+
+
+var buildControlRow = function() {
+    var images = $(".imagegroup li img");
+    for (var i = 0; i < images.length; i++) {
+        var ctrlItem = $("<li>");
+        var ctrlLink = $("<a>")
+            .attr("href", $(images[i]).parent().attr("href"))
+            .mousedown(function(event) {
+                event.preventDefault();
+            })
+            .focus(buildFocusHandler($(images[i]).attr("src")))
+            .keydown(buildKeydownHandler($(images[i]).parent().attr("href")))
+            .click(buildClickHandler($(images[i]).attr("src")));
+        var ctrlImg = $("<img>")
+            .attr("src", "images/circle" + (i + 1) + "_grey.png")
+            .attr("alt", $(images[i]).attr("alt"))
+            .attr("width", "16")
+            .attr("height", "16");
+        $(".controls").append(ctrlItem);
+        ctrlItem.append(ctrlLink);
+        ctrlLink.append(ctrlImg);
+        imgHash[$(images[i]).attr("src")] = ctrlImg;
+    }
+    highlightControlForCurrentImage(0);
+}
+
+var buildFocusHandler = function(srcUrl) {
+    return function(event) {
+        focusOnElement(srcUrl);
+        event.preventDefault();
+    };
+}
+
+var buildClickHandler = function(srcUrl) {
+    return function(event) {
+        if ($(document.activeElement).is($(event.currentTarget))) {
+            var e = jQuery.Event("keydown");
+            e.which = 13;
+            e.keyCode = 13
+            $(event.currentTarget).trigger(e);
+            event.preventDefault();
+        } else {
+            focusOnElement(srcUrl);
+            event.preventDefault();
+        }
+    }
+}
+
+var buildKeydownHandler = function(srcUrl) {
+    return function(event) {
+        if (event.which === 13 || event.which === 32) {
+            window.location.href = srcUrl;
+        }
+    }
+}
+
+var focusOnElement = function(srcUrl) {
+    $(".imagegroup ul").stop(true, false);
+    pauseCarousel();
+    var imgList = $(".imagegroup li img");
+    var i = 0;
+    for (i = 0; i < imgList.length; i++) {
+        if ($(imgList[i]).attr("src") === srcUrl) {
+            if (i === 0) {
+                return;
+            }
+            animateCarousel(0, i);
+            return;
+        }
+    }
+}
+
+var playpausekeypress = function(event) {
+    if (event.which === 13 || event.which === 32) {
+        $("#playPauseButton").click();
+    }
+}
+
+var pauseCarousel = function() {
+    clearInterval(timer);
+    $("#playPauseButton")
+        .attr("src", $("#playPauseButton").attr("src").replace("pause.png", "play.png"))
+        .attr("alt", "Reproducir una imagen del carrusel")
+        .off("click")
+        .click(playCarousel);
+    //$(".offscreen").text("Carousel paused");
+}
+
+var playCarousel = function() {
+    timer = setInterval(function() {
+        animateCarousel(500, 1);
+    }, 4500);
+    $("#playPauseButton")
+        .attr("src", $("#playPauseButton").attr("src").replace("play.png", "pause.png"))
+        .attr("alt", "Pausar una imagen del carrusel")
+        .off("click")
+        .click(pauseCarousel);
+   // $(".offscreen").text("Carousel playing");
+}
+
+var initializeAria = function() {
+    $(".imagegroup")
+        .attr("aria-hidden", "true")
+        .attr("role", "presentation");
+    $(".imagegroup a")
+        .attr("tabindex", "-1");
+}
+
+$(document).ready(function() {
+    //build control row, and associate dots with pictures
+    buildControlRow();
+    //initialize ARIA attributes that would be inappropriate without JS enabled
+    initializeAria();
+    //init keyboard handler, and start carousel playing
+    $("#playPauseButton").keydown(playpausekeypress);
+    playCarousel();
+});
+
+
+</script>
+
+</head>
+
+<body>
+<div class="carousel-images">
+  <div class="imagegroup">
+        <ul>
+            <li>
+                <a href="/index.php?id=3045">
+                <img src="images/viajes.PNG" 
+                alt="Todo lo que necesitas saber sobre Viajes" 
+                width="600" height="240" />
+                </a>
+            </li>
+            <li>
+                <a href="/index.php?id=3045">
+                <img src="images/Dinero.PNG" 
+                alt="Dinero" 
+                width="600" height="240" />
+                </a>
+            </li>
+            <li>
+                <a href="/index.php?id=3045">
+                <img src="images/Salud.PNG" 
+                alt="Salud" 
+                width="600" height="240" />
+                </a>
+            </li>
+            <li>
+                <a href="/index.php?id=3045">
+                <img src="images/Seguridad.PNG" 
+                alt="Seguridad" 
+                width="600" height="240" />
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <ul class="controls">
+        <li><img id="playPauseButton" role="button" tabindex="0" 
+        src="images/pause.png" 
+        width="16" height="16" alt="Pausa Carrusel de imagen promocional">
+        </li>
+    </ul>
+
+</div>
+
+<div id="carouselLiveRegion" class="offscreen" aria-live="polite"></div>
+</body>
+</html>
