@@ -1,36 +1,66 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:300);
-
-body {
-	background-color: #FFFFFF;
-	margin-left: 32px;
-	margin-top: 20px;
-	margin-right: 20px;
-	margin-bottom: 20px;
-	font-family: "Lato", Arial;
-	font-size: 14px;
-	line-height:16px;
+.amChartsDataSetSelector
+{
+    font-size:12px;
+    font-family:verdana,helvetica,arial,sans-serif;
 }
 
-hr{
-   border: 1px solid #FFFFFF;
+.amChartsPeriodSelector
+{
+    font-size:12px;
+    font-family:verdana,helvetica,arial,sans-serif;
 }
 
-a:link{
-	color:#0055CC;
-}
-a:visited{
-		color:#990099;
-}
-a:hover{
-		color:#CC0000;
+.amChartsButtonSelected
+{
+   background-color:#CC0000;
+   border-style:solid;
+   border-color:#CC0000;
+   border-width:1px;
+   color:#FFFFFF;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   margin: 1px;
+   outline: none;
+   box-sizing: border-box;
 }
 
-th{
-	background-color:#FFFFFF;
- 	font-weight:bold;
+.amChartsButton
+{
+    color: #000000;
+    background: transparent;
+    opacity: 0.7;
+    border: 1px solid rgba(0, 0, 0, .3);
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   margin: 1px;
+   outline: none;
+   box-sizing: border-box;
 }
 
-td{
-	background-color:#ecf7fe;
- 	text-align:center;
+.amChartsCompareList
+{
+   border-style:solid;
+   border-color:#CCCCCC;
+   border-width:1px;
+}
+
+.amChartsCompareList div
+{
+   -webkit-box-sizing: initial;
+   box-sizing: initial;
+}
+
+.amChartsInputField
+{
+
+}
+
+.amChartsLegend
+{
+
+}
+
+.amChartsPanel
+{
+
 }

@@ -1,9 +1,7 @@
 AmCharts.themes.light = {
 
-	themeName:"light",
-
 	AmChart: {
-		color: "#000000", backgroundColor: "#FFFFFF"
+		color: "#000000"
 	},
 
 	AmCoordinateChart: {
@@ -116,8 +114,18 @@ AmCharts.themes.light = {
 	},
 
 	ZoomControl: {
-		buttonFillAlpha:0.7,
-		buttonIconColor:"#a7a7a7"
+		buttonRollOverColor: "#3c5bdc",
+		buttonFillColor: "#3994e2",
+		buttonBorderColor: "#3994e2",
+		buttonFillAlpha: 0.8,
+		gridBackgroundColor: "#FFFFFF",
+		buttonBorderAlpha:0,
+		buttonCornerRadius:2,
+		gridColor:"#FFFFFF",
+		gridBackgroundColor:"#000000",
+		buttonIconAlpha:0.6,
+		gridAlpha: 0.6,
+		buttonSize:20
 	},
 
 	SmallMap: {
