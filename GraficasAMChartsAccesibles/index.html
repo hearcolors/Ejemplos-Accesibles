@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gráfica amCharts Accesible</title>
+  <meta name="description" content="chart created using amCharts live editor" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <!-- amCharts javascript sources -->
+  <script type="text/javascript" src="lib/amcharts.js"></script>
+  <script type="text/javascript" src="lib/pie.js"></script>
+  <script type="text/javascript" src="lib/serial.js"></script>
+
+  <script src="lib/plugins/export/export.js"></script>
+  <link  type="text/css" href="lib/plugins/export/export.css" rel="stylesheet">
+
+  <!-- amCharts javascript code -->
+  <script type="text/javascript">
+    AmCharts.makeChart("chartdiv",
+    {
+      "type": "serial",
+      "path": "http://www.amcharts.com/lib/3/",
+      "categoryField": "category",
+      "colors": [
+      "#006531",
+      "#2EB301",
+      "#c2d336",
+      "#f7a35c",
+      "#8085e9",
+      "#f15c80",
+      "#e4d354",
+      "#2b908f",
+      "#f45b5b",
+      "#91e8e1"
+      ],
+      "startDuration": 1,
+      "fontFamily": "Lucida Grande",
+      "handDrawScatter": 1,
+      "handDrawThickness": 2,
+      "categoryAxis": {
+        "gridPosition": "start"
+      },
+      "chartCursor": {
+        "cursorColor": "#000000"
+      },
+      "trendLines": [],
+      "graphs": [
+      {
+        "balloonText": "[[category]]<br>[[title]]: [[value]]%",
+        "fillAlphas": 1,
+        "id": "AmGraph-1",
+        "title": "México 2012",
+        "type": "column",
+        "valueField": "column-1"
+      },
+      {
+        "balloonText": "[[category]]<br>[[title]]: [[value]]%",
+        "fillAlphas": 1,
+        "id": "AmGraph-2",
+        "title": "México 2014",
+        "type": "column",
+        "valueField": "column-2"
+      },
+      {
+        "balloonText": "[[category]]<br>[[title]]: [[value]]%",
+        "fillAlphas": 1,
+        "id": "AmGraph-3",
+        "title": "Latam 2014",
+        "type": "column",
+        "valueField": "column-3"
+      }
+      ],
+      "guides": [],
+      "valueAxes": [
+      {
+        "id": "ValueAxis-1",
+        "title": "Porcentaje (%)"
+      }
+      ],
+      "allLabels": [],
+      "balloon": {},
+      "export": {
+        "enabled": true
+      },
+      "legend": {
+        "useGraphSettings": true
+      },
+      "titles": [
+      {
+        "color": "#000000",
+        "id": "Title-1",
+        "size": 16,
+        "text": "Figura 1. Calificación Regulatoria de México y Latinoamérica en los Mercados de Telecomunicaciones"
+      }
+      ],
+      "dataProvider": [
+      {
+        "category": "Política de<br> Espectro",
+        "column-1": "60",
+        "column-2": "82",
+        "column-3": "72"
+      },
+      {
+        "category": "Protección al<br> Consumidor",
+        "column-1": "20",
+        "column-2": "78",
+        "column-3": "60"
+      },
+      {
+        "category": "Marco <br>Institucional y <br>Regulatorio",
+        "column-1": "10",
+        "column-2": "50",
+        "column-3": "47"
+      },
+      {
+        "category": "Regulación <br>Mayorista en <br>Telecomunicaciones <br>Móviles",
+        "column-1": "15",
+        "column-2": "50",
+        "column-3": "40"
+      },
+      {
+        "category": "Regulación<br> Mayorista en <br>Telecomunicaciones <br>Fijas",
+        "column-1": "0",
+        "column-2": "74",
+        "column-3": "40"
+      },
+      {
+        "category": "Regulación <br>Minorista",
+        "column-1": "0",
+        "column-2": "20",
+        "column-3": "15"
+      }
+      ]
+    }
+    );
+</script>
+</head>
+<body>
+  <div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
+</body>
+</html>
