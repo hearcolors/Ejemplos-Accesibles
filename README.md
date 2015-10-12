@@ -3,7 +3,7 @@ Ejemplos de Accesibilidad [HearColors](http://www.hearcolors.com.mx/ "HearColors
 
 ## Descripción
 
-![Ejemplos de Accesibilidad Hearcolors](http://i.imgur.com/9kePNA0.png)
+![Ejemplos de Accesibilidad HearColors](http://i.imgur.com/9kePNA0.png)
 
 
 ## Licencias de Software
