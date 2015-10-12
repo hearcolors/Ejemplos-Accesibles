@@ -5,7 +5,6 @@ Ejemplos de Accesibilidad [HearColors](http://www.hearcolors.com.mx/ "HearColors
 
 ![Ejemplos de Accesibilidad Hearcolors](http://i.imgur.com/9kePNA0.png)
 
-* Puedes consultarlos en linea en *[aquí](http://www.hearcolors.com.mx/EjemplosAccesiblesHC/ "http://www.hearcolors.com.mx/EjemplosAccesiblesHC/")*.
 
 ## Licencias de Software
 * Todo el código fuente independiente contiene su propia licencia de software que determina los términos y condiciones de su uso y distribución.
