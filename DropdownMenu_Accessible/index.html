@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Dropdown Menu Test: Simply Accessible</title>
+    <link rel="stylesheet" href="css/simplyaccessible-menu.css" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/simplyaccessible-menu.js"></script>
+</head>
+<body>
+    <h1>Dropdown Menu Test: Simply Accessible</h1>
+    <p>This is one of several dropdown menus tested on Terrill Thompson's <a href="http://staff.washington.edu/tft/tests/menus/index.html">Dropdown Menus Test Page</a>.</p>
+
+    <h2>Description</h2>
+
+    <p>This page applies techniques described in Derek Featherstone's article <a href="http://simplyaccessible.com/article/better-for-accessibility/">Better For Accessibility</a>, and specifically uses code from his <a href="http://simplyaccessible.com/examples/css-menu/option-6/">Option 6</a> example.</p>
+
+    <div role="navigation" aria-label="Main menu">
+        <ul class="nav" role="menubar">
+            <li role="menuitem" aria-haspopup="true">
+                <a href="lipsum.html">About</a>
+                <ul data-test="true" aria-hidden="true" role="menu">
+                    <li role="menuitem"><a href="lipsum.html" tabindex="-1">News</a></li>
+                    <li role="menuitem"><a href="lipsum.html" tabindex="-1">Governance</a></li>
+                    <li role="menuitem"><a href="lipsum.html" tabindex="-1">Diversity</a></li>
+                    <li role="menuitem"><a href="lipsum.html" tabindex="-1">ContactUs</a></li>
+                </ul>
+            </li>
+            <li role="menuitem" aria-haspopup="true">
+                <a href="lipsum.html">Academics</a>
+                <ul data-test="true" aria-hidden="true" role="menu">
+                    <li role="menuitem"><a href="lipsum.html" tabindex="-1">Degree Programs</a></li>
+                    <li role="menuitem"><a href="lipsum.html" tabindex="-1">Faculty</a></li>
+                    <li role="menuitem"><a href="lipsum.html" tabindex="-1">Distance Learning</a></li>
+                    <li role="menuitem"><a href="lipsum.html" tabindex="-1">Libraries</a></li>
+                </ul>
+            </li>
+            <li role="menuitem" aria-haspopup="true">
+                <a href="lipsum.html">Admissions</a>
+                <ul data-test="true" aria-hidden="true" role="menu">
+                    <li role="menuitem"><a href="lipsum.html" tabindex="-1">Undergraduate</a></li>
+                    <li role="menuitem"><a href="lipsum.html" tabindex="-1">Tuition</a></li>
+                    <li role="menuitem"><a href="lipsum.html" tabindex="-1">Financial Aid</a></li>
+                </ul>
+            </li>
+            <li role="menuitem" aria-haspopup="true">
+                <a href="lipsum.html">Visitors</a>
+                <ul data-test="true" aria-hidden="true" role="menu">
+                    <li role="menuitem"><a href="lipsum.html" tabindex="-1">Events</a></li>
+                    <li role="menuitem"><a href="lipsum.html" tabindex="-1">Campus Map</a></li>
+                    <li role="menuitem"><a href="lipsum.html" tabindex="-1">Parking</a></li>
+                </ul>
+            </li>
+        </ul>    
+    </div>
+        
+    <p>To exit the menu, <a href="http://staff.washington.edu/tft/tests/menus/simplyaccessible/index.html#">press tab again</a> and you should land safely in this paragraph.</p>        
+
+    <h2>Observations</h2>
+    <ul>
+        <li>This is a highly accessible menu that uses ARIA markup to provide additional semantics that help screen reader users to fully understand the interface as they interact with it.</li>
+        <li>Uses very clean HTML code, so is easy to setup. All ARIA markup is added automatically via JavaScript.</li> 
+        <li>This menu closely closely follows the DHTML Style Guide.</li>
+        <li>Differs from YUI and OAA menus in that all menu items are accessible via tab.</li>
+        <li>The original menu (<a href="http://simplyaccessible.com/examples/css-menu/option-6/">Option 6</a>) doesn't work as well as I would expect it to with screen readers. Although it uses all the same ARIA markup as the YUI and OAA menus, screen readers don't seem to recognize it as a menu (for example, they announce "Link About", rather than "Menu About, to read the items press up or down arrow keys". The problem seems to be that the ARIA markup (role="menuitem" and aria-haspopup="true") are added to the LI element, but the focusable item is the link inside that element. If focus is moved to the LI (using tabindex="0"), this problem is corrected.</li>
+        <li>The arrow keys work great without a screen reader, but if JAWS is running it seems to intercept keystrokes and not release them to JavaScript. This isn't true of YUI and OAA menus, so maybe it has something to do with the method by which keystrokes are being captured. Still troubleshooting this...</li>
+        <li>I left some of the CSS intact from Derek's original, as it provides a great example of CSS3 style effects such as rounded corners and gradient backgrounds.</li>
+    </ul>
+</body>
+</html>
